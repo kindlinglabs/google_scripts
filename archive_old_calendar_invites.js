@@ -2,7 +2,7 @@ function archiveOldCalendarInvites() {
 
   var cutoffDate = new Date();
 
-  var threads = GmailApp.search("from:calendar-notification@google.com in:inbox");
+  var threads = GmailApp.search("Invitation from Google Calendar in:inbox");
   var oldThreads = [];
 
   for (var i = 0; i < threads.length; i++) {
@@ -24,6 +24,7 @@ function archiveOldCalendarInvites() {
     }
   }
 
+  GmailApp.markThreadsRead(oldThreads);
   GmailApp.moveThreadsToArchive(oldThreads);
 
 }
